@@ -1,71 +1,77 @@
-## Project info
+# AgentB — Your Personalized Learning Platform
 
-**URL**: https://lovable.dev/projects/52aedff7-9a0d-4fb2-9266-7663143119f0
+AgentB is an AI-powered campus assistant providing personalized learning, campus resources, and adaptive study tools tailored to your learning style.
 
-## How can I edit this code?
+## Tech stack
 
-There are several ways of editing your application.
+- **Vite** — Build tool and dev server
+- **TypeScript** — Type-safe JavaScript
+- **React** — UI framework
+- **shadcn/ui** — Component library (Radix UI + Tailwind)
+- **Tailwind CSS** — Styling
+- **Supabase** — Backend (Auth, Database, Storage, Edge Functions)
 
-**Use Lovable**
+## Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/52aedff7-9a0d-4fb2-9266-7663143119f0) and start prompting.
+- **Node.js** (v18 or newer recommended) — [Install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating) or from [nodejs.org](https://nodejs.org/)
+- **npm** (or Bun / yarn)
 
-Changes made via Lovable will be committed automatically to this repo.
+## Local development
 
-**Use your preferred IDE**
+### 1. Clone and install
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
 git clone <YOUR_GIT_URL>
+cd <PROJECT_DIRECTORY>
+npm install
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 2. Environment variables
 
-# Step 3: Install the necessary dependencies.
-npm i
+Create a `.env` file in the project root with your Supabase credentials (and any other env vars the app expects). For example:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```env
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+
+Do not commit `.env` or real keys. You can add a `.env.example` with placeholder variable names for other developers.
+
+### 3. Run the dev server
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app is served at **http://localhost:8080** (or the port shown in the terminal). Edits will hot-reload.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 4. Build and preview
 
-**Use GitHub Codespaces**
+```bash
+# Production build
+npm run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Preview the production build locally
+npm run preview
+```
 
-## What technologies are used for this project?
+## Scripts
 
-This project is built with:
+| Command        | Description                    |
+|----------------|--------------------------------|
+| `npm run dev`  | Start dev server with HMR      |
+| `npm run build`| Production build (output: `dist`) |
+| `npm run build:dev` | Build in development mode |
+| `npm run preview`   | Serve production build locally |
+| `npm run lint`      | Run ESLint                     |
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Project structure
 
-## How can I deploy this project?
+- `src/` — Application source (entry: `src/main.tsx`)
+- `src/components/` — React components (including `ui/` for shadcn)
+- `src/lib/` — Utilities and shared code (e.g. Supabase client)
+- `src/hooks/` — Custom React hooks
 
-Simply open [Lovable](https://lovable.dev/projects/52aedff7-9a0d-4fb2-9266-7663143119f0) and click on Share -> Publish.
+Path alias `@/` points to `src/` (e.g. `@/components/ui/button`).
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+For a high-level architecture and migration notes from Lovable, see **ARCHITECTURE.md** and **cursor_migration.md**.
