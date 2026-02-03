@@ -97,7 +97,7 @@ AgentB is an AI-powered adaptive learning platform built with React, TypeScript,
 ┌─────────────────────────────────────────────────────────────────┐
 │           EXTERNAL SERVICES & AI INTEGRATION                     │
 │  ┌────────────────────────────────────────────────────────────┐  │
-│  │    AI/ML Services (Lovable Platform)                       │  │
+│  │    AI/ML Services (External / Backend)                     │  │
 │  │  ├─ Adaptive Learning Algorithm                          │  │
 │  │  ├─ AI Chat Generation (Agent B Chat)                   │  │
 │  │  ├─ Study Plan Generation                               │  │
@@ -493,7 +493,7 @@ Development
     ↓
 [Git Repository] (GitHub)
     ↓
-Lovable Platform CI/CD
+CI/CD Pipeline
     ↓
 Build Process (Vite)
     ↓
